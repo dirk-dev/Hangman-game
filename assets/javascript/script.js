@@ -14,10 +14,32 @@ remainingGuesses; */
 var wins = 0;
 var losses = 0;
 var guessed = [];
-var answers = ['saturn', 'jupiter', 'pluto', 'neptune', 'mars', 'mercury', 'earth', 'venus', 'uranus', 'comet', 'meteor'];
-var remainingGuesses;
+var wordList = ['sun', 'mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune', 'pluto', 'comet', 'meteor', 'asteroid'];
+var chosenWord = '';
+var remainingGuesses = 9;
+var wordArray = [];
+var wordDisplay = [];
 
 
+function gameStart() {
+    //choose random word from wordList
+    for (i = 0; i < wordList.length; i++)
+        chosenWord = wordList[Math.floor((Math.random() * wordList.length))];
+    console.log(chosenWord);
+
+    //splits chosenWord into array of individual letters
+    wordArray = chosenWord.split('');
+    console.log(wordArray);
+
+    //choses blanks for each letter in the wordArray
+    wordArray.forEach((element)) {
+        wordDisplay.push('-');
+    };
+
+
+}
+
+gameStart();
 /*  
 ### initial game setup ###
 display wins/losses/guesses remaining
