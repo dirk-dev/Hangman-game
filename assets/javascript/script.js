@@ -1,16 +1,5 @@
 console.log("script.js loaded");
 
-/* pseudocode for Hangman game
-
-### initial declaration phase ###
-
-declare/initialize variables:
- wins = 0;
- losses = 0;
-guessed = []; array (empty)
-answers = []; array
-remainingGuesses; */
-
 var wins = 0;
 var losses = 0;
 var guessed = [];
@@ -20,26 +9,33 @@ var remainingGuesses = 9;
 var wordArray = [];
 var wordDisplay = [];
 
+function updateWordDisplay() {
+    document.querySelector("#answer").innerHTML = wordDisplay;
+}
 
 function gameStart() {
     //choose random word from wordList
     for (i = 0; i < wordList.length; i++)
         chosenWord = wordList[Math.floor((Math.random() * wordList.length))];
-    console.log(chosenWord);
+    console.log('chosenWord: ', chosenWord);
 
     //splits chosenWord into array of individual letters
     wordArray = chosenWord.split('');
-    console.log(wordArray);
+    console.log('wordArray: ', wordArray);
 
     //choses blanks for each letter in the wordArray
-    wordArray.forEach((element)) {
-        wordDisplay.push('-');
-    };
-
+    wordArray.forEach(function () {
+        wordDisplay.push('_');
+    });
+    console.log('wordDisplay: ', wordDisplay);
 
 }
 
 gameStart();
+updateWordDisplay();
+
+//pushes word display to the screen
+
 /*  
 ### initial game setup ###
 display wins/losses/guesses remaining
